@@ -6,10 +6,12 @@ import com.senamhi.sgdibackend.Entity.ciclo;
 import com.senamhi.sgdibackend.Entity.productoActividadOperativaActividad;
 import com.senamhi.sgdibackend.Repository.actividadServidorRepository;
 import com.senamhi.sgdibackend.Repository.productoActividadOperativaActividadRepository;
+import com.senamhi.sgdibackend.Repository.view.viewServidorProductoRepository;
 import com.senamhi.sgdibackend.util.responseService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,6 +26,9 @@ public class productoServidoresController {
 
     @Autowired
     actividadServidorRepository repositoryServidor;
+
+    @Autowired
+    viewServidorProductoRepository repositoryProductoServidor;
 
     @GetMapping("listar")
     public responseService listar(){
@@ -93,5 +98,16 @@ public class productoServidoresController {
         }
         return respuesta;
     }
-
+    @GetMapping(value = "listarProductosCodigo", params = "codigo")
+    public responseService listarProductosCodigo(String codigo){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=repositoryProductoServidor.findByCodigo(codigo);
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
 }
+

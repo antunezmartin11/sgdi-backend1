@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "VIEW_ACTIVIDAD_OPÉRATIVA_UNIDAD")
+@Table(name = "VIEW_ACT_OPE_UNI")
 public class viewActividadOperativaUnidad {
     @Id
     @Column(name = "ID_ACTIVIDAD_OP_UNID", updatable = false, insertable = false)
