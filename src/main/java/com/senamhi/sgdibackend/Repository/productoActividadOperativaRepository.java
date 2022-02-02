@@ -8,4 +8,5 @@ import java.util.List;
 public interface productoActividadOperativaRepository extends JpaRepository<productoActividadOperativa, Integer> {
     List<productoActividadOperativa> findByIdAOUnidadOrderByIdAOUnidadDesc(Integer id);
 
+
 }

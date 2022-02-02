@@ -10,7 +10,7 @@ public class productoActividadOperativaActividad {
     @Id
     @Column(name = "ID_PRO_AO_ACT")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "SEQ_INS_VINCULAR_SERVIDOR", sequenceName = "SYSTEM")
+    @SequenceGenerator(name = "SEQ_INS_VINCULAR_SERVIDOR", sequenceName = "SEQ_INS_VINCULAR_SERVIDOR")
     private Integer idProAIAct;
 
     @Column(name = "V_NOM_NOMBRE_ACTIVIDAD")
@@ -28,8 +28,8 @@ public class productoActividadOperativaActividad {
     @Column(name = "V_DES_UNIDAD_MEDIDA")
     private String unidadMedida;
 
-    @Column(name = "ID_TIPO_DOCUMENTO")
-    private Integer idTipoDocumento;
+    @Column(name = "V_NOM_EVIDENCIA")
+    private String evidencia;
 
     @Column(name = "N_NUM_PESO")
     private Double peso;
@@ -46,29 +46,41 @@ public class productoActividadOperativaActividad {
     @Column(name = "C_FLG_FICHA")
     private Boolean ficha;
 
-    @Column(name = "ID_PLAZA")
-    private Integer idUsuario;
+    @Column(name = "ID_OBJETIVO")
+    private Integer idObjetivo;
 
-    @Column(name = "ID_HITO")
-    private Integer idHito;
+    @Column(name = "V_NOM_OBJETIVO")
+    private String nomObjetivo;
+
+    @Column(name = "ID_ACTIVIDAD_SERVIDOR")
+    private Integer idActividadServidor;
+
+    @Column(name = "ID_PRODUCTO")
+    private Integer idProducto;
+
+    @Column(name = "V_NOM_PRODUCTO")
+    private String nomProducto;
 
     public productoActividadOperativaActividad(){}
 
-    public productoActividadOperativaActividad(Integer idProAIAct, String nomActividad, Integer idActividad, Integer secuencia, String estandar, String unidadMedida, Integer idTipoDocumento, Double peso, Double meta, Double contribucion, Boolean estado, Boolean ficha, Integer idUsuario, Integer idHito) {
+    public productoActividadOperativaActividad(Integer idProAIAct, String nomActividad, Integer idActividad, Integer secuencia, String estandar, String unidadMedida, String evidencia, Double peso, Double meta, Double contribucion, Boolean estado, Boolean ficha, Integer idObjetivo, String nomObjetivo, Integer idActividadServidor, Integer idProducto, String nomProducto) {
         this.idProAIAct = idProAIAct;
         this.nomActividad = nomActividad;
         this.idActividad = idActividad;
         this.secuencia = secuencia;
         this.estandar = estandar;
         this.unidadMedida = unidadMedida;
-        this.idTipoDocumento = idTipoDocumento;
+        this.evidencia = evidencia;
         this.peso = peso;
         this.meta = meta;
         this.contribucion = contribucion;
         this.estado = estado;
         this.ficha = ficha;
-        this.idUsuario = idUsuario;
-        this.idHito = idHito;
+        this.idObjetivo = idObjetivo;
+        this.nomObjetivo = nomObjetivo;
+        this.idActividadServidor = idActividadServidor;
+        this.idProducto = idProducto;
+        this.nomProducto = nomProducto;
     }
 
     public Integer getIdProAIAct() {
@@ -119,12 +131,12 @@ public class productoActividadOperativaActividad {
         this.unidadMedida = unidadMedida;
     }
 
-    public Integer getIdTipoDocumento() {
-        return idTipoDocumento;
+    public String getEvidencia() {
+        return evidencia;
     }
 
-    public void setIdTipoDocumento(Integer idTipoDocumento) {
-        this.idTipoDocumento = idTipoDocumento;
+    public void setEvidencia(String evidencia) {
+        this.evidencia = evidencia;
     }
 
     public Double getPeso() {
@@ -167,19 +179,43 @@ public class productoActividadOperativaActividad {
         this.ficha = ficha;
     }
 
-    public Integer getIdUsuario() {
-        return idUsuario;
+    public Integer getIdObjetivo() {
+        return idObjetivo;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdObjetivo(Integer idObjetivo) {
+        this.idObjetivo = idObjetivo;
     }
 
-    public Integer getIdHito() {
-        return idHito;
+    public String getNomObjetivo() {
+        return nomObjetivo;
     }
 
-    public void setIdHito(Integer idHito) {
-        this.idHito = idHito;
+    public void setNomObjetivo(String nomObjetivo) {
+        this.nomObjetivo = nomObjetivo;
+    }
+
+    public Integer getIdActividadServidor() {
+        return idActividadServidor;
+    }
+
+    public void setIdActividadServidor(Integer idActividadServidor) {
+        this.idActividadServidor = idActividadServidor;
+    }
+
+    public Integer getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public String getNomProducto() {
+        return nomProducto;
+    }
+
+    public void setNomProducto(String nomProducto) {
+        this.nomProducto = nomProducto;
     }
 }

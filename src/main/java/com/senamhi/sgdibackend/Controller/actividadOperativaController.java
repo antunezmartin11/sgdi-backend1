@@ -4,6 +4,7 @@ import com.senamhi.sgdibackend.Entity.actividadOperativa;
 import com.senamhi.sgdibackend.Entity.actividadOperativaUnidad;
 import com.senamhi.sgdibackend.Repository.actividadOperativaRepository;
 import com.senamhi.sgdibackend.Repository.actividadOperativaUnidadRepository;
+import com.senamhi.sgdibackend.Repository.view.viewActividadOperativaUnidadRepository;
 import com.senamhi.sgdibackend.util.responseService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,6 +23,9 @@ public class actividadOperativaController {
 
     @Autowired
     actividadOperativaUnidadRepository repositoryAO;
+
+    @Autowired
+    viewActividadOperativaUnidadRepository viewRepository;
 
     @GetMapping("listarAO")
     public responseService listar(){
@@ -73,7 +77,29 @@ public class actividadOperativaController {
     public responseService listarAOUnidad(){
         responseService respuesta=new responseService();
         try {
-            respuesta.content=repositoryAO.findAll();
+            respuesta.content=viewRepository.findAll();
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
+    @GetMapping(value = "getAOxUnidad", params = "nombre")
+    public responseService getAOxUnidad(String nombre){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=repositoryAO.findByNombreUnidad(nombre);
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
+    @GetMapping(value = "countAO", params = "id")
+    public responseService countAO(Integer id){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=repository.contarAO(id);
         }catch (Exception ex){
             respuesta.SetException(ex);
             log.error(ex.getMessage(), ex.getCause());

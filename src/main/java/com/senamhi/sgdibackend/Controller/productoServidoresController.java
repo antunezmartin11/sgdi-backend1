@@ -1,8 +1,10 @@
 package com.senamhi.sgdibackend.Controller;
 
 
+import com.senamhi.sgdibackend.Entity.actividadServidor;
 import com.senamhi.sgdibackend.Entity.ciclo;
 import com.senamhi.sgdibackend.Entity.productoActividadOperativaActividad;
+import com.senamhi.sgdibackend.Repository.actividadServidorRepository;
 import com.senamhi.sgdibackend.Repository.productoActividadOperativaActividadRepository;
 import com.senamhi.sgdibackend.util.responseService;
 import org.apache.logging.log4j.LogManager;
@@ -19,6 +21,9 @@ public class productoServidoresController {
 
     @Autowired
     productoActividadOperativaActividadRepository repository;
+
+    @Autowired
+    actividadServidorRepository repositoryServidor;
 
     @GetMapping("listar")
     public responseService listar(){
@@ -43,4 +48,50 @@ public class productoServidoresController {
         }
         return respuesta;
     }
+
+    @PostMapping("/agregarServidor")
+    public responseService agregarServidor(@RequestBody actividadServidor s){
+        responseService respuesta = new responseService();
+        try {
+            respuesta.content = repositoryServidor.save(s);
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
+    @GetMapping(value = "validarUsuario", params = "codigo")
+    public responseService validarUsuario(String codigo){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=repositoryServidor.contarRegistro(codigo);
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
+    @GetMapping(value = "listarServidor")
+    public responseService listarServidor(){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=repositoryServidor.findAll();
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
+    @GetMapping(value = "listarProductos", params = "id")
+    public responseService listarProductos(Integer id){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=repository.findByIdActividadServidor(id);
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
+
 }

@@ -18,8 +18,8 @@ public class productoActividadOperativa {
     @Column(name = "N_NUM_PESO")
     private Double peso;
 
-    @Column(name = "ID_TIPO_DOCUMENTO")
-    private Integer idTipoDocumento;
+    @Column(name = "V_TIP_EVIDENCIA")
+    private String tipoEvidencia;
 
     @Column(name = "V_IND_ESTANDAR")
     private String estandar;
@@ -40,11 +40,11 @@ public class productoActividadOperativa {
 
     public productoActividadOperativa(){}
 
-    public productoActividadOperativa(Integer idProductoAO, Integer idProducto, Double peso, Integer idTipoDocumento, String estandar, String formula, Double meta, String nomProducto, Integer idAOUnidad) {
+    public productoActividadOperativa(Integer idProductoAO, Integer idProducto, Double peso, String tipoEvidencia, String estandar, String formula, Double meta, String nomProducto, Integer idAOUnidad) {
         this.idProductoAO = idProductoAO;
         this.idProducto = idProducto;
         this.peso = peso;
-        this.idTipoDocumento = idTipoDocumento;
+        this.tipoEvidencia = tipoEvidencia;
         this.estandar = estandar;
         this.formula = formula;
         this.meta = meta;
@@ -76,12 +76,12 @@ public class productoActividadOperativa {
         this.peso = peso;
     }
 
-    public Integer getIdTipoDocumento() {
-        return idTipoDocumento;
+    public String getTipoEvidencia() {
+        return tipoEvidencia;
     }
 
-    public void setIdTipoDocumento(Integer idTipoDocumento) {
-        this.idTipoDocumento = idTipoDocumento;
+    public void setTipoEvidencia(String tipoEvidencia) {
+        this.tipoEvidencia = tipoEvidencia;
     }
 
     public String getEstandar() {
