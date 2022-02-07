@@ -10,7 +10,7 @@ public class periodo {
     @Id
     @Column(name = "ID_PERIODO")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="SEQ_INS_PERIODO",sequenceName="SYSTEM", allocationSize=1)
+    @SequenceGenerator(name="SEQ_INS_PERIODO",sequenceName="SEQ_INS_PERIODO", allocationSize=1)
     private Integer idPeriodo;
 
     @Column(name = "V_NOM_PERIODO")

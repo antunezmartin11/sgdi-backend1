@@ -1,9 +1,6 @@
 package com.senamhi.sgdibackend.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "MVD_PERIODO_ACTIVIDAD")
@@ -11,6 +8,8 @@ public class periodoActividad {
 
     @Id
     @Column(name = "ID_PERIODO_ACTIVIDAD")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "SEQ_INS_PERIODO_ACTI", sequenceName = "SEQ_INS_PERIODO_ACTI", allocationSize = 1)
     private Integer idPeriodoActividad;
 
     @Column(name = "D_NUM_PESO")
@@ -19,19 +18,15 @@ public class periodoActividad {
     @Column(name = "ID_PERIODO")
     private Integer idPeriodo;
 
-    @Column(name = "ID_ACTIVIDAD")
-    private Integer idActividad;
-
     @Column(name = "ID_PRO_AO_ACT")
     private Integer idProductoAO_Actividad;
 
     public periodoActividad(){}
 
-    public periodoActividad(Integer idPeriodoActividad, Double peso, Integer idPeriodo, Integer idActividad, Integer idProductoAO_Actividad) {
+    public periodoActividad(Integer idPeriodoActividad, Double peso, Integer idPeriodo, Integer idProductoAO_Actividad) {
         this.idPeriodoActividad = idPeriodoActividad;
         this.peso = peso;
         this.idPeriodo = idPeriodo;
-        this.idActividad = idActividad;
         this.idProductoAO_Actividad = idProductoAO_Actividad;
     }
 
@@ -57,14 +52,6 @@ public class periodoActividad {
 
     public void setIdPeriodo(Integer idPeriodo) {
         this.idPeriodo = idPeriodo;
-    }
-
-    public Integer getIdActividad() {
-        return idActividad;
-    }
-
-    public void setIdActividad(Integer idActividad) {
-        this.idActividad = idActividad;
     }
 
     public Integer getIdProductoAO_Actividad() {

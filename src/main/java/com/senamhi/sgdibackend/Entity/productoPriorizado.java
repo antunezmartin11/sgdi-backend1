@@ -10,7 +10,7 @@ public class productoPriorizado {
     @Id
     @Column(name = "ID_PRODUCTO_PRIORIZADO")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="SEQ_INS_PROD_PRIO",sequenceName="SYSTEM", allocationSize=1)
+    @SequenceGenerator(name="SEQ_INS_PROD_PRIO",sequenceName="SEQ_INS_PROD_PRIO", allocationSize=1)
     private Integer idProductoPriorizado;
 
     @Column(name = "V_NOM_PRODUCTO")
