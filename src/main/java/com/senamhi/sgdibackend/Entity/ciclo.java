@@ -9,7 +9,7 @@ public class ciclo {
     @Id
     @Column(name = "ID_CICLO")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="SEQ_INS_CICLO",sequenceName="SYSTEM", allocationSize=1)
+    @SequenceGenerator(name="SEQ_INS_CICLO",sequenceName="SEQ_INS_CICLO", allocationSize=1)
     private Integer idCiclo;
 
     @Column(name = "D_FEC_INICIO")
