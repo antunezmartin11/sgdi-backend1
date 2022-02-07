@@ -34,8 +34,7 @@ public class productoPriorizado {
     @Column(name = "ID_ORGANO")
     private Integer organo;
 
-    @Column(name = "V_OBS_OBSERVACION")
-    private String observacion;
+    
 
     public productoPriorizado(){}
 
