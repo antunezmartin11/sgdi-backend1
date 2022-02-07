@@ -1,6 +1,7 @@
 package com.senamhi.sgdibackend.Entity;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "MVD_ACCION_INICIATIVA")
@@ -38,10 +39,18 @@ public class accionIniciativa {
     @Column(name = "V_NOM_UNIDAD")
     private String nomUnidad;
 
+    @Column(name = "V_MED_VERIFICACION")
+    private String medioVerificacion;
+
+    @Column(name = "D_FEC_INICIO")
+    private Date fecInicio;
+
+    @Column(name = "D_FEC_FIN")
+    private Date fecFin;
 
     public accionIniciativa(){}
 
-    public accionIniciativa(Integer idAccionIniciativa, String tipoProceso, String descripcion, Integer idUnidad, Integer idPeriodo, String tipoPrioritario, Integer idInformeAuditoria, Integer idProductoPriorizado, String accionIniciativa, String nomUnidad) {
+    public accionIniciativa(Integer idAccionIniciativa, String tipoProceso, String descripcion, Integer idUnidad, Integer idPeriodo, String tipoPrioritario, Integer idInformeAuditoria, Integer idProductoPriorizado, String accionIniciativa, String nomUnidad, String medioVerificacion, Date fecInici, Date fecFin) {
         this.idAccionIniciativa = idAccionIniciativa;
         this.tipoProceso = tipoProceso;
         this.descripcion = descripcion;
@@ -52,6 +61,9 @@ public class accionIniciativa {
         this.idProductoPriorizado = idProductoPriorizado;
         this.accionIniciativa = accionIniciativa;
         this.nomUnidad = nomUnidad;
+        this.medioVerificacion = medioVerificacion;
+        this.fecInicio = fecInicio;
+        this.fecFin = fecFin;
     }
 
     public Integer getIdAccionIniciativa() {
@@ -132,5 +144,29 @@ public class accionIniciativa {
 
     public void setNomUnidad(String nomUnidad) {
         this.nomUnidad = nomUnidad;
+    }
+
+    public String getMedioVerificacion() {
+        return medioVerificacion;
+    }
+
+    public void setMedioVerificacion(String medioVerificacion) {
+        this.medioVerificacion = medioVerificacion;
+    }
+
+    public Date getFecInicio() {
+        return fecInicio;
+    }
+
+    public void setFecInici(Date fecInicio) {
+        this.fecInicio = fecInicio;
+    }
+
+    public Date getFecFin() {
+        return fecFin;
+    }
+
+    public void setFecFin(Date fecFin) {
+        this.fecFin = fecFin;
     }
 }

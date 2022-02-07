@@ -10,7 +10,7 @@ public class tipoDocumento {
     @Id
     @Column(name = "ID_TIPO_DOCUMENTO")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="SEQ_INS_TDOCUMENTO",sequenceName="SYSTEM", allocationSize=1)
+    @SequenceGenerator(name="SEQ_INS_TDOCUMENTO",sequenceName="SEQ_INS_TDOCUMENTO", allocationSize=1)
     private Integer idTipoDocumento;
 
     @Column(name = "V_NOM_DOCUMENTO")

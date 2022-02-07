@@ -99,7 +99,7 @@ public class productoServidoresController {
         return respuesta;
     }
     @GetMapping(value = "listarProductosCodigo", params = "codigo")
-    public responseService listarProductosCodigo(String codigo){
+    public responseService  listarProductosCodigo(String codigo){
         responseService respuesta=new responseService();
         try {
             respuesta.content=repositoryProductoServidor.findByCodigo(codigo);
@@ -109,5 +109,6 @@ public class productoServidoresController {
         }
         return respuesta;
     }
+
 }
 

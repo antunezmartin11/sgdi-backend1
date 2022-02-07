@@ -40,4 +40,16 @@ public class PeriodoActividadController {
         }
         return respuesta;
     }
+    @GetMapping(value = "contarPeriodoServidor", params = "id")
+    public responseService contarPeriodoServidor( Integer id){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=repository.contarPeriodoServidor(id);
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
+
 }

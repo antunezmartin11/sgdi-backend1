@@ -9,7 +9,7 @@ public class productoActividadOperativa {
     @Id
     @Column(name = "ID_PRODUCTO_AO")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "SEQ_INS_PRO_AO", sequenceName = "SYSTEM", allocationSize = 1)
+    @SequenceGenerator(name = "SEQ_INS_PRO_AO", sequenceName = "SEQ_INS_PRO_AO", allocationSize = 1)
     private Integer idProductoAO;
 
     @Column(name = "ID_PRODUCTO")

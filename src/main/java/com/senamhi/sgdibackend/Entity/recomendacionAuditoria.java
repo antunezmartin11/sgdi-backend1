@@ -9,7 +9,7 @@ public class recomendacionAuditoria {
     @Id
     @Column(name = "ID_RECOMENDACION_AUDITORIA")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="SEQ_RECOMENDACIONAUDITORIA", sequenceName = "SYSTEM", allocationSize = 1)
+    @SequenceGenerator(name="SEQ_RECOMENDACIONAUDITORIA", sequenceName = "SEQ_RECOMENDACIONAUDITORIA", allocationSize = 1)
     private Integer idRecomendacionAuditoria;
 
     @Column(name = "ID_UNIDAD")
@@ -24,14 +24,30 @@ public class recomendacionAuditoria {
     @Column(name = "ID_INFORME_AUDITORIA")
     private Integer idInformeAuditoria;
 
+    @Column(name = "V_NOM_UNIDAD")
+    private String nomUnidad;
+
     public recomendacionAuditoria(){}
 
-    public recomendacionAuditoria(Integer idRecomendacionAuditoria, Integer idUnidad, Integer idTipoDocumento, String recomendacion, Integer idInformeAuditoria) {
+    public recomendacionAuditoria(Integer idRecomendacionAuditoria,
+                                  Integer idUnidad, Integer idTipoDocumento,
+                                  String recomendacion,
+                                  Integer idInformeAuditoria,
+                                  String nomUnidad) {
         this.idRecomendacionAuditoria = idRecomendacionAuditoria;
         this.idUnidad = idUnidad;
         this.idTipoDocumento = idTipoDocumento;
         this.recomendacion = recomendacion;
         this.idInformeAuditoria = idInformeAuditoria;
+        this.nomUnidad = nomUnidad;
+    }
+
+    public String getNomUnidad() {
+        return nomUnidad;
+    }
+
+    public void setNomUnidad(String nomUnidad) {
+        this.nomUnidad = nomUnidad;
     }
 
     public Integer getIdRecomendacionAuditoria() {

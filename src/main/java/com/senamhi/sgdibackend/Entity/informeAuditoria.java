@@ -10,7 +10,7 @@ public class informeAuditoria {
     @Id
     @Column(name = "ID_INFORME_AUDITORIA")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="SEQ_INS_INFORME_AUDITORIA",sequenceName="SYSTEM", allocationSize=1)
+    @SequenceGenerator(name="SEQ_INS_INFORME_AUDITORIA",sequenceName="SEQ_INS_INFORME_AUDITORIA", allocationSize=1)
     private Integer idInformeAuditoria;
 
     @Column(name = "ID_TIPO_DOCUMENTO")

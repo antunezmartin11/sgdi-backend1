@@ -9,7 +9,7 @@ public class periodoAE {
     @Id
     @Column(name = "ID_AE_PERIODO")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "SEQ_INS_PERIODO_AE", sequenceName = "SYSTEM", allocationSize = 1)
+    @SequenceGenerator(name = "SEQ_INS_PERIODO_AE", sequenceName = "SEQ_INS_PERIODO_AE", allocationSize = 1)
     private Integer idPeriodoAE;
 
     @Column(name = "N_NUM_PESO")
