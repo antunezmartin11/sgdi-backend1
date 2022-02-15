@@ -48,9 +48,12 @@ public class accionIniciativa {
     @Column(name = "D_FEC_FIN")
     private Date fecFin;
 
+    @Column(name = "C_FLG_ESTADO")
+    private String flagEstado;
+
     public accionIniciativa(){}
 
-    public accionIniciativa(Integer idAccionIniciativa, String tipoProceso, String descripcion, Integer idUnidad, Integer idPeriodo, String tipoPrioritario, Integer idInformeAuditoria, Integer idProductoPriorizado, String accionIniciativa, String nomUnidad, String medioVerificacion, Date fecInici, Date fecFin) {
+    public accionIniciativa(Integer idAccionIniciativa, String tipoProceso, String descripcion, Integer idUnidad, Integer idPeriodo, String tipoPrioritario, Integer idInformeAuditoria, Integer idProductoPriorizado, String accionIniciativa, String nomUnidad, String medioVerificacion, Date fecInicio, Date fecFin, String flagEstado) {
         this.idAccionIniciativa = idAccionIniciativa;
         this.tipoProceso = tipoProceso;
         this.descripcion = descripcion;
@@ -64,6 +67,7 @@ public class accionIniciativa {
         this.medioVerificacion = medioVerificacion;
         this.fecInicio = fecInicio;
         this.fecFin = fecFin;
+        this.flagEstado = flagEstado;
     }
 
     public Integer getIdAccionIniciativa() {
@@ -168,5 +172,17 @@ public class accionIniciativa {
 
     public void setFecFin(Date fecFin) {
         this.fecFin = fecFin;
+    }
+
+    public void setFecInicio(Date fecInicio) {
+        this.fecInicio = fecInicio;
+    }
+
+    public String getFlagEstado() {
+        return flagEstado;
+    }
+
+    public void setFlagEstado(String flagEstado) {
+        this.flagEstado = flagEstado;
     }
 }

@@ -21,8 +21,8 @@ public class productoAccionEstrategica {
     @Column(name = "V_DES_FORMULA")
     private String formula;
 
-    @Column(name = "ID_TIPO_DOCUMENTO")
-    private Integer idTipoDocumento;
+    @Column(name = "V_MED_VERIFICACION")
+    private String  medioVerificacion;
 
     @Column(name = "ID_AE_DIRECCION")
     private Integer idAEDireccion;
@@ -35,12 +35,12 @@ public class productoAccionEstrategica {
 
     public productoAccionEstrategica(){}
 
-    public productoAccionEstrategica(Integer idProductoAE, Integer idProducto, Double peso, String formula, Integer idTipoDocumento, Integer idAEDireccion, Double contribucion, String nomProducto) {
+    public productoAccionEstrategica(Integer idProductoAE, Integer idProducto, Double peso, String formula, String medioVerificacion, Integer idAEDireccion, Double contribucion, String nomProducto) {
         this.idProductoAE = idProductoAE;
         this.idProducto = idProducto;
         this.peso = peso;
         this.formula = formula;
-        this.idTipoDocumento = idTipoDocumento;
+        this.medioVerificacion = medioVerificacion;
         this.idAEDireccion = idAEDireccion;
         this.contribucion = contribucion;
         this.nomProducto = nomProducto;
@@ -78,12 +78,12 @@ public class productoAccionEstrategica {
         this.formula = formula;
     }
 
-    public Integer getIdTipoDocumento() {
-        return idTipoDocumento;
+    public String getMedioVerificacion() {
+        return medioVerificacion;
     }
 
-    public void setIdTipoDocumento(Integer idTipoDocumento) {
-        this.idTipoDocumento = idTipoDocumento;
+    public void setMedioVerificacion(String medioVerificacion) {
+        this.medioVerificacion = medioVerificacion;
     }
 
     public Integer getIdAEDireccion() {

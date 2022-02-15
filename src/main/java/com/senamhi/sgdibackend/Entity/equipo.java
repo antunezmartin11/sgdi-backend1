@@ -1,9 +1,6 @@
 package com.senamhi.sgdibackend.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "MVD_EQUIPO")
@@ -11,6 +8,8 @@ public class equipo {
 
     @Id
     @Column(name = "ID_EQUIPO")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "INS_SEQ_EQUIPO", sequenceName = "INS_SEQ_EQUIPO")
     private Integer idEquipo;
 
     @Column(name = "ID_ACCION_INICIATIVA")
@@ -19,24 +18,36 @@ public class equipo {
     @Column(name = "ID_UNIDAD")
     private Integer idUnidad;
 
-    @Column(name = "ID_USUARIO")
-    private Integer idUsuario;
-
-    @Column(name = "ID_PERIODO_AI")
-    private Integer idPeriodoAI;
+    @Column(name = "ID_PLAZA")
+    private Integer idPlaza;
 
     @Column(name = "N_NUM_CONTRIBUCION")
     private Double contribucion;
 
+    @Column(name = "ID_ROL")
+    private Integer idRol;
+
+    @Column(name = "V_NOM_SERVIDOR")
+    private String nomServidor;
+
+    @Column(name = "V_NOM_UNIDAD")
+    private String nomUnidad;
+
+    @Column(name = "V_NOM_CARGO")
+    private String cargo;
+
     public equipo (){}
 
-    public equipo(Integer idEquipo, Integer idAccionIniciativa, Integer idUnidad, Integer idUsuario, Integer idPeriodoAI, Double contribucion) {
+    public equipo(Integer idEquipo, Integer idAccionIniciativa, Integer idUnidad, Integer idPlaza, Double contribucion, Integer idRol, String nomServidor, String nomUnidad, String cargo) {
         this.idEquipo = idEquipo;
         this.idAccionIniciativa = idAccionIniciativa;
         this.idUnidad = idUnidad;
-        this.idUsuario = idUsuario;
-        this.idPeriodoAI = idPeriodoAI;
+        this.idPlaza = idPlaza;
         this.contribucion = contribucion;
+        this.idRol = idRol;
+        this.nomServidor = nomServidor;
+        this.nomUnidad = nomUnidad;
+        this.cargo = cargo;
     }
 
     public Integer getIdEquipo() {
@@ -63,20 +74,12 @@ public class equipo {
         this.idUnidad = idUnidad;
     }
 
-    public Integer getIdUsuario() {
-        return idUsuario;
+    public Integer getIdPlaza() {
+        return idPlaza;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public Integer getIdPeriodoAI() {
-        return idPeriodoAI;
-    }
-
-    public void setIdPeriodoAI(Integer idPeriodoAI) {
-        this.idPeriodoAI = idPeriodoAI;
+    public void setIdPlaza(Integer idPlaza) {
+        this.idPlaza = idPlaza;
     }
 
     public Double getContribucion() {
@@ -85,5 +88,37 @@ public class equipo {
 
     public void setContribucion(Double contribucion) {
         this.contribucion = contribucion;
+    }
+
+    public Integer getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(Integer idRol) {
+        this.idRol = idRol;
+    }
+
+    public String getNomServidor() {
+        return nomServidor;
+    }
+
+    public void setNomServidor(String nomServidor) {
+        this.nomServidor = nomServidor;
+    }
+
+    public String getNomUnidad() {
+        return nomUnidad;
+    }
+
+    public void setNomUnidad(String nomUnidad) {
+        this.nomUnidad = nomUnidad;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 }
