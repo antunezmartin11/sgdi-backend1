@@ -23,15 +23,23 @@ public class actividadServidor {
     @Column(name = "V_NOM_CARGO")
     private String cargo;
 
+    @Column(name = "V_NOM_DIRECCION")
+    private String nomDireccion;
+
+    @Column(name = "V_NOM_UNIDAD")
+    private String nomUnidad;
+
     public actividadServidor() {
     }
 
-    public actividadServidor(Integer idActividadServidor, String nomServidor, Integer idPlaza, String codigo, String cargo) {
+    public actividadServidor(Integer idActividadServidor, String nomServidor, Integer idPlaza, String codigo, String cargo, String nomDireccion, String nomUnidad) {
         this.idActividadServidor = idActividadServidor;
         this.nomServidor = nomServidor;
         this.idPlaza = idPlaza;
         this.codigo = codigo;
         this.cargo = cargo;
+        this.nomDireccion = nomDireccion;
+        this.nomUnidad = nomUnidad;
     }
 
     public Integer getIdActividadServidor() {
@@ -73,4 +81,21 @@ public class actividadServidor {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
+
+    public String getNomDireccion() {
+        return nomDireccion;
+    }
+
+    public void setNomDireccion(String nomDireccion) {
+        this.nomDireccion = nomDireccion;
+    }
+
+    public String getNomUnidad() {
+        return nomUnidad;
+    }
+
+    public void setNomUnidad(String nomUnidad) {
+        this.nomUnidad = nomUnidad;
+    }
+
 }

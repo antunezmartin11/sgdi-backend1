@@ -39,6 +39,9 @@ public class viewActividadOperativaUnidad {
     @Column(name = "V_NOM_ACT_OPE", insertable = false, updatable = false)
     private String nomActividadOperativa;
 
+    @Column(name = "V_NOM_DIRECCION", insertable = false, updatable = false)
+    private String nomDireccion;
+
     public viewActividadOperativaUnidad() {
     }
 

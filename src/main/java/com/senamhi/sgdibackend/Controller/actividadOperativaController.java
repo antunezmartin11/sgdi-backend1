@@ -106,4 +106,15 @@ public class actividadOperativaController {
         }
         return respuesta;
     }
+    @GetMapping(value = "listarAODireccion", params = "nombreUnidad")
+    public responseService listarAODireccion(String nombreUnidad){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=viewRepository.findByNomDireccionOrderByIdAOUnidadAsc(nombreUnidad);
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
 }

@@ -109,6 +109,16 @@ public class productoServidoresController {
         }
         return respuesta;
     }
-
+    @GetMapping(value = "listarServidorUnidad", params = "nombreUnidad")
+    public responseService listarServidorUnidad(String nombreUnidad){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=repositoryServidor.findByNomUnidad(nombreUnidad);
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
 }
 

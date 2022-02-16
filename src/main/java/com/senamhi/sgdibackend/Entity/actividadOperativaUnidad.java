@@ -33,10 +33,13 @@ public class actividadOperativaUnidad {
     @Column(name = "V_NOM_ACT_OPE")
     private String nomActividadOperativa;
 
+    @Column(name = "V_NOM_DIRECCION")
+    private String nomDireccion;
+
     public actividadOperativaUnidad() {
     }
 
-    public actividadOperativaUnidad(Integer idAOUnidad, Integer idUnidad, String nombreUnidad, String codUnidad, Integer idObjetivo, String nomObjetivo, Integer idActividadOperativa, String nomActividadOperativa) {
+    public actividadOperativaUnidad(Integer idAOUnidad, Integer idUnidad, String nombreUnidad, String codUnidad, Integer idObjetivo, String nomObjetivo, Integer idActividadOperativa, String nomActividadOperativa, String nomDireccion) {
         this.idAOUnidad = idAOUnidad;
         this.idUnidad = idUnidad;
         this.nombreUnidad = nombreUnidad;
@@ -45,6 +48,7 @@ public class actividadOperativaUnidad {
         this.nomObjetivo = nomObjetivo;
         this.idActividadOperativa = idActividadOperativa;
         this.nomActividadOperativa = nomActividadOperativa;
+        this.nomDireccion = nomDireccion;
     }
 
     public Integer getIdAOUnidad() {
@@ -109,5 +113,13 @@ public class actividadOperativaUnidad {
 
     public void setNomActividadOperativa(String nomActividadOperativa) {
         this.nomActividadOperativa = nomActividadOperativa;
+    }
+
+    public String getNomDireccion() {
+        return nomDireccion;
+    }
+
+    public void setNomDireccion(String nomDireccion) {
+        this.nomDireccion = nomDireccion;
     }
 }
