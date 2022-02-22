@@ -61,9 +61,12 @@ public class productoActividadOperativaActividad {
     @Column(name = "V_NOM_PRODUCTO")
     private String nomProducto;
 
+    @Column(name = "C_FLAG")
+    private Integer flag;
+
     public productoActividadOperativaActividad(){}
 
-    public productoActividadOperativaActividad(Integer idProAIAct, String nomActividad, Integer idActividad, Integer secuencia, String estandar, String unidadMedida, String evidencia, Double peso, Double meta, Double contribucion, Boolean estado, Boolean ficha, Integer idObjetivo, String nomObjetivo, Integer idActividadServidor, Integer idProducto, String nomProducto) {
+    public productoActividadOperativaActividad(Integer idProAIAct, String nomActividad, Integer idActividad, Integer secuencia, String estandar, String unidadMedida, String evidencia, Double peso, Double meta, Double contribucion, Boolean estado, Boolean ficha, Integer idObjetivo, String nomObjetivo, Integer idActividadServidor, Integer idProducto, String nomProducto, Integer flag) {
         this.idProAIAct = idProAIAct;
         this.nomActividad = nomActividad;
         this.idActividad = idActividad;
@@ -81,6 +84,7 @@ public class productoActividadOperativaActividad {
         this.idActividadServidor = idActividadServidor;
         this.idProducto = idProducto;
         this.nomProducto = nomProducto;
+        this.flag = flag;
     }
 
     public Integer getIdProAIAct() {
@@ -217,5 +221,13 @@ public class productoActividadOperativaActividad {
 
     public void setNomProducto(String nomProducto) {
         this.nomProducto = nomProducto;
+    }
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
     }
 }

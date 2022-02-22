@@ -29,10 +29,13 @@ public class actividadServidor {
     @Column(name = "V_NOM_UNIDAD")
     private String nomUnidad;
 
+    @Column(name = "C_FLAG")
+    private Integer flag;
+
     public actividadServidor() {
     }
 
-    public actividadServidor(Integer idActividadServidor, String nomServidor, Integer idPlaza, String codigo, String cargo, String nomDireccion, String nomUnidad) {
+    public actividadServidor(Integer idActividadServidor, String nomServidor, Integer idPlaza, String codigo, String cargo, String nomDireccion, String nomUnidad, Integer flag) {
         this.idActividadServidor = idActividadServidor;
         this.nomServidor = nomServidor;
         this.idPlaza = idPlaza;
@@ -40,6 +43,7 @@ public class actividadServidor {
         this.cargo = cargo;
         this.nomDireccion = nomDireccion;
         this.nomUnidad = nomUnidad;
+        this.flag = flag;
     }
 
     public Integer getIdActividadServidor() {
@@ -98,4 +102,11 @@ public class actividadServidor {
         this.nomUnidad = nomUnidad;
     }
 
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
 }

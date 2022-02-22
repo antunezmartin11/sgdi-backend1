@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -19,4 +20,9 @@ public interface productoActividadOperativaActividadRepository extends JpaReposi
     @Modifying(clearAutomatically = true)
     @Query("update productoActividadOperativaActividad c set c.contribucion = ?1, c.meta = ?2 WHERE c.idProAIAct = ?3")
     void updateProducto(Double contribucion, Double meta, Integer id);
+
+    @Transactional
+    @Modifying
+    @Query("update productoActividadOperativaActividad c set c.flag= ?1 where c.idProAIAct=?2")
+    void updateEstado(Integer flag, Integer id);
 }

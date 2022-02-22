@@ -18,4 +18,5 @@ public interface periodoActividadRepository extends JpaRepository<periodoActivid
     List<periodoActividad> listaxId(Integer id);
 
 
+
 }

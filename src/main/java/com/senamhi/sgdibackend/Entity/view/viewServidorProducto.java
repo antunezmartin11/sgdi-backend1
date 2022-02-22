@@ -58,10 +58,12 @@ public class viewServidorProducto {
     @Column(name = "V_NOM_CODIGO", updatable = false, insertable = false)
     private String codigo;
 
+    @Column(name = "C_FLAG", updatable = false, insertable = false)
+    private Integer flag;
     public viewServidorProducto() {
     }
 
-    public viewServidorProducto(Integer idProductoAOActividad, String nomActividad, Integer idActividad, Integer secuencia, String estandar, String unidadMedida, String evidencia, Double peso, Double meta, Double contribucion, boolean estado, Integer idObjetivo, String nomObjetivo, Integer idActividadServidor, Integer idProducto, String nomProducto, String codigo) {
+    public viewServidorProducto(Integer idProductoAOActividad, String nomActividad, Integer idActividad, Integer secuencia, String estandar, String unidadMedida, String evidencia, Double peso, Double meta, Double contribucion, Integer idObjetivo, String nomObjetivo, Integer idActividadServidor, Integer idProducto, String nomProducto, String codigo, Integer flag) {
         this.idProductoAOActividad = idProductoAOActividad;
         this.nomActividad = nomActividad;
         this.idActividad = idActividad;
@@ -78,7 +80,9 @@ public class viewServidorProducto {
         this.idProducto = idProducto;
         this.nomProducto = nomProducto;
         this.codigo = codigo;
+        this.flag = flag;
     }
+
 
     public Integer getIdProductoAOActividad() {
         return idProductoAOActividad;
@@ -116,12 +120,12 @@ public class viewServidorProducto {
         return meta;
     }
 
-    public Integer getIdObjetivo() {
-        return idObjetivo;
-    }
-
     public Double getContribucion() {
         return contribucion;
+    }
+
+    public Integer getIdObjetivo() {
+        return idObjetivo;
     }
 
     public String getNomObjetivo() {
@@ -142,5 +146,9 @@ public class viewServidorProducto {
 
     public String getCodigo() {
         return codigo;
+    }
+
+    public Integer getFlag() {
+        return flag;
     }
 }
