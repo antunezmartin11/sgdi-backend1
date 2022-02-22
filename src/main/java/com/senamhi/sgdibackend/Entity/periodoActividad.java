@@ -21,13 +21,17 @@ public class periodoActividad {
     @Column(name = "ID_PRO_AO_ACT")
     private Integer idProductoAO_Actividad;
 
+    @Column(name = "V_NOM_MES")
+    private String mes;
+
     public periodoActividad(){}
 
-    public periodoActividad(Integer idPeriodoActividad, Double peso, Integer idPeriodo, Integer idProductoAO_Actividad) {
+    public periodoActividad(Integer idPeriodoActividad, Double peso, Integer idPeriodo, Integer idProductoAO_Actividad, String mes) {
         this.idPeriodoActividad = idPeriodoActividad;
         this.peso = peso;
         this.idPeriodo = idPeriodo;
         this.idProductoAO_Actividad = idProductoAO_Actividad;
+        this.mes = mes;
     }
 
     public Integer getIdPeriodoActividad() {
@@ -60,5 +64,13 @@ public class periodoActividad {
 
     public void setIdProductoAO_Actividad(Integer idProductoAO_Actividad) {
         this.idProductoAO_Actividad = idProductoAO_Actividad;
+    }
+
+    public String getMes() {
+        return mes;
+    }
+
+    public void setMes(String mes) {
+        this.mes = mes;
     }
 }
