@@ -2,17 +2,21 @@ package com.senamhi.sgdibackend.Controller;
 
 import com.senamhi.sgdibackend.Entity.actividadOperativa;
 import com.senamhi.sgdibackend.Entity.actividadOperativaUnidad;
+import com.senamhi.sgdibackend.Entity.actividadServidor;
+import com.senamhi.sgdibackend.Entity.productoActividadOperativaActividad;
 import com.senamhi.sgdibackend.Repository.actividadOperativaRepository;
 import com.senamhi.sgdibackend.Repository.actividadOperativaUnidadRepository;
 import com.senamhi.sgdibackend.Repository.view.viewActividadOperativaUnidadRepository;
+import com.senamhi.sgdibackend.excepciones.ResourceNotFoundException;
 import com.senamhi.sgdibackend.util.responseService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/actividadOperativa/")
+    @RequestMapping("/api/actividadOperativa/")
 @CrossOrigin(origins = { "*" }, allowedHeaders = "*")
 public class actividadOperativaController {
 
@@ -111,6 +115,30 @@ public class actividadOperativaController {
         responseService respuesta=new responseService();
         try {
             respuesta.content=viewRepository.findByNomDireccionOrderByIdAOUnidadAsc(nombreUnidad);
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
+    @PostMapping("/updateEstadoSubDirectivo/{id}")
+    public responseService updateEstadoSubDirectivo(@PathVariable Integer id){
+        responseService respuesta=new responseService();
+        try{
+            repository.updateEstadoSubDirectivo(id);
+            respuesta.estado=true;
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
+    @PostMapping("/updateEstadoAOUnidad/{id}")
+    public responseService updateEstadoAOUnidad(@PathVariable Integer id){
+        responseService respuesta=new responseService();
+        try{
+            repositoryAO.updateEstadoAOUnidad(id);
+            respuesta.estado=true;
         }catch (Exception ex){
             respuesta.SetException(ex);
             log.error(ex.getMessage(), ex.getCause());

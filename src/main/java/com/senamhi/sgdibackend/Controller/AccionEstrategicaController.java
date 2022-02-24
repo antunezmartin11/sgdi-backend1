@@ -110,4 +110,16 @@ public class AccionEstrategicaController {
         }
         return respuesta;
     }
+    @PostMapping("/updateEstadoAE/{id}")
+    public responseService updateEstadoAE(@PathVariable Integer id){
+        responseService respuesta=new responseService();
+        try{
+            repository.updateEstadoDirectivo(id);
+            respuesta.estado=true;
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
 }

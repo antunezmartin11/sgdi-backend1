@@ -42,10 +42,13 @@ public class viewActividadOperativaUnidad {
     @Column(name = "V_NOM_DIRECCION", insertable = false, updatable = false)
     private String nomDireccion;
 
+    @Column(name = "C_EST_ESTADO", insertable = false, updatable = false)
+    private String estado;
+
     public viewActividadOperativaUnidad() {
     }
 
-    public viewActividadOperativaUnidad(Integer idAOUnidad, Integer idObjetivo, Integer idUnidad, String codUnidad, String nomObjetivo, String nomUnidad, Integer idActividadOperativa, Integer idAccionEstrategica, String nomAccionEstrategica, String nomActividadOperativa) {
+    public viewActividadOperativaUnidad(Integer idAOUnidad, Integer idObjetivo, Integer idUnidad, String codUnidad, String nomObjetivo, String nomUnidad, Integer idActividadOperativa, Integer idAccionEstrategica, String nomAccionEstrategica, String nomActividadOperativa, String nomDireccion, String estado) {
         this.idAOUnidad = idAOUnidad;
         this.idObjetivo = idObjetivo;
         this.idUnidad = idUnidad;
@@ -56,6 +59,8 @@ public class viewActividadOperativaUnidad {
         this.idAccionEstrategica = idAccionEstrategica;
         this.nomAccionEstrategica = nomAccionEstrategica;
         this.nomActividadOperativa = nomActividadOperativa;
+        this.nomDireccion = nomDireccion;
+        this.estado = estado;
     }
 
     public Integer getIdAOUnidad() {
@@ -96,5 +101,13 @@ public class viewActividadOperativaUnidad {
 
     public String getNomActividadOperativa() {
         return nomActividadOperativa;
+    }
+
+    public String getNomDireccion() {
+        return nomDireccion;
+    }
+
+    public String getEstado() {
+        return estado;
     }
 }

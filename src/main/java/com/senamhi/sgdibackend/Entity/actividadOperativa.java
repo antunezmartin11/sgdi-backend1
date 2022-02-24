@@ -18,11 +18,11 @@ public class actividadOperativa {
     @Column(name = "ID_ACTI_OPE")
     private Integer idActividadOp;
 
-    @Column(name = "ID_CICLO")
-    private Integer idCiclo;
+    @Column(name = "V_NOM_RESPONSABLE")
+    private String nombreResponsable;
 
-    @Column(name = "ID_PLAZA")
-    private Integer idPlaza;
+    @Column(name = "V_COD_PLAZA")
+    private String codigoPlaza;
 
 
     @Column(name = "C_EST_ESTADO")
@@ -34,18 +34,30 @@ public class actividadOperativa {
     @Column(name = "V_NOM_ACC_ESTR")
     private String nomAccEstra;
 
+    @Column(name = "N_DNI_RESPONSABLE")
+    private Integer dniReponsable;
+
+    @Column(name = "V_NOM_CARGO")
+    private String nombreCargo;
+
+    @Column(name = "V_NOM_DIRECCION")
+    private String nomDireccion;
+
     public actividadOperativa() {
     }
 
-    public actividadOperativa(Integer idActividadOperativa, Integer idAccionEstrategica, Integer idActividadOp, Integer idCiclo, Integer idPlaza, String estado, boolean ficha, String nomAccEstra) {
+    public actividadOperativa(Integer idActividadOperativa, Integer idAccionEstrategica, Integer idActividadOp, String nombreResponsable, String codigoPlaza, String estado, boolean ficha, String nomAccEstra, Integer dniReponsable, String nombreCargo, String nomDireccion) {
         this.idActividadOperativa = idActividadOperativa;
         this.idAccionEstrategica = idAccionEstrategica;
         this.idActividadOp = idActividadOp;
-        this.idCiclo = idCiclo;
-        this.idPlaza = idPlaza;
+        this.nombreResponsable = nombreResponsable;
+        this.codigoPlaza = codigoPlaza;
         this.estado = estado;
         this.ficha = ficha;
         this.nomAccEstra = nomAccEstra;
+        this.dniReponsable = dniReponsable;
+        this.nombreCargo = nombreCargo;
+        this.nomDireccion = nomDireccion;
     }
 
     public Integer getIdActividadOperativa() {
@@ -72,20 +84,20 @@ public class actividadOperativa {
         this.idActividadOp = idActividadOp;
     }
 
-    public Integer getIdCiclo() {
-        return idCiclo;
+    public String getNombreResponsable() {
+        return nombreResponsable;
     }
 
-    public void setIdCiclo(Integer idCiclo) {
-        this.idCiclo = idCiclo;
+    public void setNombreResponsable(String nombreResponsable) {
+        this.nombreResponsable = nombreResponsable;
     }
 
-    public Integer getIdPlaza() {
-        return idPlaza;
+    public String getCodigoPlaza() {
+        return codigoPlaza;
     }
 
-    public void setIdPlaza(Integer idPlaza) {
-        this.idPlaza = idPlaza;
+    public void setCodigoPlaza(String codigoPlaza) {
+        this.codigoPlaza = codigoPlaza;
     }
 
     public String getEstado() {
@@ -110,5 +122,29 @@ public class actividadOperativa {
 
     public void setNomAccEstra(String nomAccEstra) {
         this.nomAccEstra = nomAccEstra;
+    }
+
+    public Integer getDniReponsable() {
+        return dniReponsable;
+    }
+
+    public void setDniReponsable(Integer dniReponsable) {
+        this.dniReponsable = dniReponsable;
+    }
+
+    public String getNombreCargo() {
+        return nombreCargo;
+    }
+
+    public void setNombreCargo(String nombreCargo) {
+        this.nombreCargo = nombreCargo;
+    }
+
+    public String getNomDireccion() {
+        return nomDireccion;
+    }
+
+    public void setNomDireccion(String nomDireccion) {
+        this.nomDireccion = nomDireccion;
     }
 }

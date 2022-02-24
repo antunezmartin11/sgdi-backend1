@@ -31,6 +31,9 @@ public class viewAccionEstrategicaDireccion {
     @Column(name = "V_NOM_DIRECCION")
     private String nomDireccion;
 
+    @Column(name = "C_DES_ESTADO")
+    private String estado;
+
     public viewAccionEstrategicaDireccion() {
     }
 
@@ -60,5 +63,9 @@ public class viewAccionEstrategicaDireccion {
 
     public String getNomDireccion() {
         return nomDireccion;
+    }
+
+    public String getEstado() {
+        return estado;
     }
 }
