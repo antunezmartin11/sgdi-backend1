@@ -16,6 +16,6 @@ public interface actividadOperativaUnidadRepository extends JpaRepository<activi
 
     @Transactional
     @Modifying
-    @Query("update actividadOperativaUnidad c set c.estado= 1 where c.idAOUnidad=?1")
-    void updateEstadoAOUnidad(Integer id);
+    @Query("update actividadOperativaUnidad c set c.estado=?1 where c.idAOUnidad=?2")
+    void updateEstadoAOUnidad(String estado, Integer id);
 }

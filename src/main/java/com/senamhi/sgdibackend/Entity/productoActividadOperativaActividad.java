@@ -1,6 +1,9 @@
 package com.senamhi.sgdibackend.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -64,9 +67,15 @@ public class productoActividadOperativaActividad {
     @Column(name = "C_FLAG")
     private Integer flag;
 
+
+    @OneToMany(targetEntity = periodoActividad.class)
+    @JoinColumn(name = "id_pro_ao_act")
+    private List<periodoActividad> listaPeriodo;
+
+
     public productoActividadOperativaActividad(){}
 
-    public productoActividadOperativaActividad(Integer idProAIAct, String nomActividad, Integer idActividad, Integer secuencia, String estandar, String unidadMedida, String evidencia, Double peso, Double meta, Double contribucion, Boolean estado, Boolean ficha, Integer idObjetivo, String nomObjetivo, Integer idActividadServidor, Integer idProducto, String nomProducto, Integer flag) {
+    public productoActividadOperativaActividad(Integer idProAIAct, String nomActividad, Integer idActividad, Integer secuencia, String estandar, String unidadMedida, String evidencia, Double peso, Double meta, Double contribucion, Boolean estado, Boolean ficha, Integer idObjetivo, String nomObjetivo, Integer idActividadServidor, Integer idProducto, String nomProducto, Integer flag, List listaPeriodo) {
         this.idProAIAct = idProAIAct;
         this.nomActividad = nomActividad;
         this.idActividad = idActividad;
@@ -85,6 +94,7 @@ public class productoActividadOperativaActividad {
         this.idProducto = idProducto;
         this.nomProducto = nomProducto;
         this.flag = flag;
+        this.listaPeriodo = listaPeriodo;
     }
 
     public Integer getIdProAIAct() {
@@ -229,5 +239,13 @@ public class productoActividadOperativaActividad {
 
     public void setFlag(Integer flag) {
         this.flag = flag;
+    }
+
+    public List<periodoActividad> getListaPeriodo() {
+        return listaPeriodo;
+    }
+
+    public void setListaPeriodo(List<periodoActividad> listaPeriodo) {
+        this.listaPeriodo = listaPeriodo;
     }
 }

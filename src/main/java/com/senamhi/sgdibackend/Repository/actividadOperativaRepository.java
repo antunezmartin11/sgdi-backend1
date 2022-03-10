@@ -19,6 +19,6 @@ public interface actividadOperativaRepository extends JpaRepository<actividadOpe
 
     @Transactional
     @Modifying
-    @Query("update actividadOperativa c set c.estado= 1 where c.idActividadOperativa=?1")
-    void updateEstadoSubDirectivo(Integer id);
+    @Query("update actividadOperativa c set c.estado=?1 where c.idActividadOperativa=?2")
+    void updateEstadoSubDirectivo(String estado, Integer id);
 }

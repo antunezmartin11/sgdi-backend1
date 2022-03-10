@@ -24,6 +24,8 @@ public class periodoActividad {
     @Column(name = "V_NOM_MES")
     private String mes;
 
+
+
     public periodoActividad(){}
 
     public periodoActividad(Integer idPeriodoActividad, Double peso, Integer idPeriodo, Integer idProductoAO_Actividad, String mes) {

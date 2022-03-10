@@ -98,8 +98,6 @@ public class AccionIniciativaController {
     @PostMapping("/updateAccionIniciativa/{id}")
     public ResponseEntity<accionIniciativa> updateAccionIniciativa(@PathVariable Integer id, @RequestBody accionIniciativa a){
         accionIniciativa accion= repository.findById(id).orElseThrow(()-> new ResourceNotFoundException("No existe el registro"));
-        accion.setIdUnidad(a.getIdUnidad());
-        accion.setNomUnidad(a.getNomUnidad());
         accion.setMedioVerificacion(a.getMedioVerificacion());
         accion.setTipoProceso(a.getTipoProceso());
         accion.setFecInicio(a.getFecInicio());

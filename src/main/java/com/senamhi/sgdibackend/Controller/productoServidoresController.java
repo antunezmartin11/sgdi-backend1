@@ -7,6 +7,7 @@ import com.senamhi.sgdibackend.Entity.ciclo;
 import com.senamhi.sgdibackend.Entity.productoActividadOperativaActividad;
 import com.senamhi.sgdibackend.Repository.actividadServidorRepository;
 import com.senamhi.sgdibackend.Repository.productoActividadOperativaActividadRepository;
+import com.senamhi.sgdibackend.Repository.view.viewProductoAORepository;
 import com.senamhi.sgdibackend.Repository.view.viewServidorProductoRepository;
 import com.senamhi.sgdibackend.excepciones.ResourceNotFoundException;
 import com.senamhi.sgdibackend.util.responseService;
@@ -16,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/productoServidor/")
@@ -32,6 +35,8 @@ public class productoServidoresController {
 
     @Autowired
     viewServidorProductoRepository repositoryProductoServidor;
+
+
 
     @GetMapping("listar")
     public responseService listar(){
@@ -137,9 +142,9 @@ public class productoServidoresController {
         return respuesta;
     }
     @PostMapping("/updateEstadoServidor/{id}")
-    public ResponseEntity<actividadServidor> updateEstadoServidor(@PathVariable Integer id) {
+    public ResponseEntity<actividadServidor> updateEstadoServidor(@PathVariable Integer id, @RequestBody actividadServidor as) {
         actividadServidor a = repositoryServidor.findById(id).orElseThrow(() -> new ResourceNotFoundException("No existe el registro"));
-        a.setFlag(1);
+        a.setFlag(as.getFlag());
         actividadServidor regActualizado = repositoryServidor.save(a);
         return ResponseEntity.ok(regActualizado);
     }
@@ -154,5 +159,55 @@ public class productoServidoresController {
         }
         return respuesta;
     }
+
+    @GetMapping(value = "listaProducto/{codigo}")
+    public responseService listaProducto(@PathVariable String codigo){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=repository.listaProductos(codigo);
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
+
+    @GetMapping("listarProductoPeriodo/{id}")
+    public responseService listarProductoPeriodo(@PathVariable Integer id){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=repository.findByIdActividadServidor(id);
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
+    @PostMapping("updateProducto/{id}")
+    public  responseService updateProducto(@PathVariable Integer id, @RequestBody productoActividadOperativaActividad pa){
+            responseService respuesta= new responseService();
+            try {
+                repository.updateProductos(pa.getSecuencia(),pa.getEstandar(),pa.getEvidencia(),
+                        pa.getUnidadMedida(), pa.getPeso(), id);
+            }catch (Exception ex){
+                respuesta.SetException(ex);
+                log.error(ex.getMessage(), ex.getCause());
+            }
+            return respuesta;
+    }
+    @DeleteMapping("/eliminarProducto/{id}")
+    public responseService deleteProducto(@PathVariable Integer id){
+        responseService respuesta= new responseService();
+        try {
+            repository.deleteById(id);
+            respuesta.estado=true;
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+
+        return respuesta;
+    }
+
 }
 

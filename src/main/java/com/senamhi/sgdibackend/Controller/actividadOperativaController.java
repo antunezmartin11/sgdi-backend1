@@ -122,10 +122,10 @@ public class actividadOperativaController {
         return respuesta;
     }
     @PostMapping("/updateEstadoSubDirectivo/{id}")
-    public responseService updateEstadoSubDirectivo(@PathVariable Integer id){
+    public responseService updateEstadoSubDirectivo(@PathVariable Integer id, @RequestBody actividadOperativa ao){
         responseService respuesta=new responseService();
         try{
-            repository.updateEstadoSubDirectivo(id);
+            repository.updateEstadoSubDirectivo(ao.getEstado(),id);
             respuesta.estado=true;
         }catch (Exception ex){
             respuesta.SetException(ex);
@@ -134,10 +134,10 @@ public class actividadOperativaController {
         return respuesta;
     }
     @PostMapping("/updateEstadoAOUnidad/{id}")
-    public responseService updateEstadoAOUnidad(@PathVariable Integer id){
+    public responseService updateEstadoAOUnidad(@PathVariable Integer id, @RequestBody actividadOperativaUnidad aou){
         responseService respuesta=new responseService();
         try{
-            repositoryAO.updateEstadoAOUnidad(id);
+            repositoryAO.updateEstadoAOUnidad(aou.getEstado(),id);
             respuesta.estado=true;
         }catch (Exception ex){
             respuesta.SetException(ex);

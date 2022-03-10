@@ -2,7 +2,9 @@ package com.senamhi.sgdibackend.Controller;
 
 import com.senamhi.sgdibackend.Entity.ciclo;
 import com.senamhi.sgdibackend.Entity.productoActividadOperativa;
+import com.senamhi.sgdibackend.Entity.view.viewProductoAO;
 import com.senamhi.sgdibackend.Repository.productoActividadOperativaRepository;
+import com.senamhi.sgdibackend.Repository.view.viewProductoAORepository;
 import com.senamhi.sgdibackend.util.responseService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,6 +20,9 @@ public class productoActividadOperativaController {
 
     @Autowired
     productoActividadOperativaRepository repository;
+
+    @Autowired
+    viewProductoAORepository repositoryProductoAO;
 
     @GetMapping("listar")
     public responseService listar(){
@@ -55,5 +60,16 @@ public class productoActividadOperativaController {
         return respuesta;
     }
 
+    @PostMapping(value = "listarProductosAO")
+    public responseService listarProductosAO(@RequestBody viewProductoAO vpao){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=repositoryProductoAO.findByNombreUnidad(vpao.getNombreUnidad());
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
 
 }
