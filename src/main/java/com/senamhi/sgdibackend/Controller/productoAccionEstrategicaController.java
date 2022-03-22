@@ -2,7 +2,9 @@ package com.senamhi.sgdibackend.Controller;
 
 import com.senamhi.sgdibackend.Entity.ciclo;
 import com.senamhi.sgdibackend.Entity.productoAccionEstrategica;
+import com.senamhi.sgdibackend.Entity.view.viewProductoAE;
 import com.senamhi.sgdibackend.Repository.productoAccionEstrategicaRepository;
+import com.senamhi.sgdibackend.Repository.view.viewProductoAERepository;
 import com.senamhi.sgdibackend.util.responseService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,6 +20,9 @@ public class productoAccionEstrategicaController {
 
     @Autowired
     productoAccionEstrategicaRepository repository;
+
+    @Autowired
+    viewProductoAERepository viewRepository;
 
     @GetMapping("listar")
     public responseService listar(){
@@ -53,5 +58,18 @@ public class productoAccionEstrategicaController {
         }
         return respuesta;
 
+    }
+
+    @PostMapping(value = "listarProductoAE")
+    public responseService listarProductoAE(@RequestBody viewProductoAE pae){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=viewRepository.findByNombreDireccion(pae.getNombreDireccion());
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+
+        return respuesta;
     }
 }

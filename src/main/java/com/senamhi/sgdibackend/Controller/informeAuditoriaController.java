@@ -68,5 +68,20 @@ public class informeAuditoriaController {
         }
         return respuesta;
     }
-
+    @PostMapping("modificarInforme/{id}")
+    public responseService modificarInforme(@PathVariable Integer id,@RequestBody informeAuditoria i){
+        responseService respuesta = new responseService();
+        try {
+            repository.updateInformeAuditoria(i.getNombreDocumento(),
+                    i.getNomInforme(),
+                    i.getNumDocumento(),
+                    i.getNumInforme(),
+                    i.getFecRecepcion(),id);
+            respuesta.estado=true;
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
 }

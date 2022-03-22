@@ -37,9 +37,11 @@ public class productoPriorizado {
     @Column(name = "V_OBS_OBSERVACION")
     private String observacion;
 
+    @Column(name = "V_NOM_ORGANO")
+    private String nombreOrgano;
     public productoPriorizado(){}
 
-    public productoPriorizado(Integer idProductoPriorizado, String nombreProducto, String riesgoPriorizado, String medidaControl, Date fecInicio, Date fecFin, Integer idTipoDocumento, Integer organo, String observacion) {
+    public productoPriorizado(Integer idProductoPriorizado, String nombreProducto, String riesgoPriorizado, String medidaControl, Date fecInicio, Date fecFin, Integer idTipoDocumento, Integer organo, String observacion, String nombreOrgano) {
         this.idProductoPriorizado = idProductoPriorizado;
         this.nombreProducto = nombreProducto;
         this.riesgoPriorizado = riesgoPriorizado;
@@ -49,6 +51,7 @@ public class productoPriorizado {
         this.idTipoDocumento = idTipoDocumento;
         this.organo = organo;
         this.observacion = observacion;
+        this.nombreOrgano = nombreOrgano;
     }
 
     public Integer getIdProductoPriorizado() {
@@ -121,5 +124,13 @@ public class productoPriorizado {
 
     public void setObservacion(String observacion) {
         this.observacion = observacion;
+    }
+
+    public String getNombreOrgano() {
+        return nombreOrgano;
+    }
+
+    public void setNombreOrgano(String nombreOrgano) {
+        this.nombreOrgano = nombreOrgano;
     }
 }

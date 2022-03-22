@@ -122,4 +122,15 @@ public class AccionEstrategicaController {
         }
         return respuesta;
     }
+    @GetMapping(value = "listarPeriodoAE/{id}")
+    public responseService listarPeriodoAE(@PathVariable Integer id){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=repositoryPeriodo.findByIdAEDireccion(id);
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
 }

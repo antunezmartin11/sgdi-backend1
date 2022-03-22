@@ -2,7 +2,9 @@ package com.senamhi.sgdibackend.Controller;
 
 import com.senamhi.sgdibackend.Entity.ciclo;
 import com.senamhi.sgdibackend.Entity.equipo;
+import com.senamhi.sgdibackend.Entity.view.viewAIEquipo;
 import com.senamhi.sgdibackend.Repository.equipoRepository;
+import com.senamhi.sgdibackend.Repository.view.viewAIEquipoRepository;
 import com.senamhi.sgdibackend.util.responseService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,6 +19,9 @@ public class equipoController {
 
     @Autowired
     equipoRepository repository;
+
+    @Autowired
+    viewAIEquipoRepository repositoryAIE;
 
     @GetMapping("listarEquipo")
     public responseService listar(){
@@ -39,6 +44,19 @@ public class equipoController {
             respuesta.SetException(ex);
             log.error(ex.getMessage(), ex.getCause());
         }
+        return respuesta;
+    }
+
+    @PostMapping("listarAIEquipo")
+    public responseService listarAIEquipo(@RequestBody viewAIEquipo ai){
+        responseService respuesta = new responseService();
+        try {
+            respuesta.content=repositoryAIE.findByIdPlaza(ai.getIdPlaza());
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+
         return respuesta;
     }
 

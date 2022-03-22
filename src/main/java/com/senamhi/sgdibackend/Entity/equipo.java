@@ -19,7 +19,7 @@ public class equipo {
     private Integer idUnidad;
 
     @Column(name = "ID_PLAZA")
-    private Integer idPlaza;
+    private String idPlaza;
 
     @Column(name = "N_NUM_CONTRIBUCION")
     private Double contribucion;
@@ -38,7 +38,7 @@ public class equipo {
 
     public equipo (){}
 
-    public equipo(Integer idEquipo, Integer idAccionIniciativa, Integer idUnidad, Integer idPlaza, Double contribucion, Integer idRol, String nomServidor, String nomUnidad, String cargo) {
+    public equipo(Integer idEquipo, Integer idAccionIniciativa, Integer idUnidad, String idPlaza, Double contribucion, Integer idRol, String nomServidor, String nomUnidad, String cargo) {
         this.idEquipo = idEquipo;
         this.idAccionIniciativa = idAccionIniciativa;
         this.idUnidad = idUnidad;
@@ -74,11 +74,11 @@ public class equipo {
         this.idUnidad = idUnidad;
     }
 
-    public Integer getIdPlaza() {
+    public String getIdPlaza() {
         return idPlaza;
     }
 
-    public void setIdPlaza(Integer idPlaza) {
+    public void setIdPlaza(String idPlaza) {
         this.idPlaza = idPlaza;
     }
 
