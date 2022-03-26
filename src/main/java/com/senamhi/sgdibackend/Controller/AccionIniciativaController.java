@@ -5,6 +5,7 @@ import com.senamhi.sgdibackend.Entity.valoracion;
 import com.senamhi.sgdibackend.Repository.accionIniciativaRepository;
 import com.senamhi.sgdibackend.Repository.rolRepository;
 import com.senamhi.sgdibackend.Repository.valoracionRepository;
+import com.senamhi.sgdibackend.Repository.view.viewAccionIniciativa_valoradaRepository;
 import com.senamhi.sgdibackend.excepciones.ResourceNotFoundException;
 import com.senamhi.sgdibackend.util.responseService;
 import org.apache.logging.log4j.LogManager;
@@ -30,6 +31,9 @@ public class AccionIniciativaController {
 
     @Autowired
     rolRepository rolRepository;
+
+    @Autowired
+    viewAccionIniciativa_valoradaRepository viewRepository;
 
     @GetMapping("listar")
     public responseService listar(){
@@ -105,6 +109,16 @@ public class AccionIniciativaController {
         accionIniciativa accionActualizada = repository.save(accion);
         return ResponseEntity.ok(accionActualizada);
     }
-
+    @GetMapping(value = "listarViewAI")
+    public responseService listarViewAI(){
+        responseService respuesta=new responseService();
+        try {
+            respuesta.content=viewRepository.findAll();
+        }catch (Exception ex){
+            respuesta.SetException(ex);
+            log.error(ex.getMessage(), ex.getCause());
+        }
+        return respuesta;
+    }
 
 }

@@ -1,60 +1,70 @@
-package com.senamhi.sgdibackend.Entity;
+package com.senamhi.sgdibackend.Entity.view;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.List;
 
 @Entity
-@Table(name = "MVD_ACCION_INICIATIVA")
-public class accionIniciativa {
+@Table(name = "VIEW_ACCION_INICIATIVA_VALORADA")
+public class viewAccionIniciativa_valorada {
     @Id
-    @Column(name = "ID_ACCION_INICIATIVA")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="SEQ_INS_ACCION_INICIATIVA",sequenceName="SEQ_INS_ACCION_INICIATIVA", allocationSize=1)
+    @Column(name = "ID_ACCION_INICIATIVA", insertable = false, updatable = false)
     private Integer idAccionIniciativa;
 
-    @Column(name = "V_TIP_PROCESO")
+    @Column(name = "V_TIP_PROCESO", insertable = false, updatable = false)
     private String tipoProceso;
 
-    @Column(name = "V_DES_DESCRIPCION")
+    @Column(name = "V_DES_DESCRIPCION", updatable = false, insertable = false)
     private String descripcion;
 
-    @Column(name = "ID_UNIDAD")
+    @Column(name = "ID_UNIDAD", updatable = false, insertable = false)
     private Integer idUnidad;
 
-    @Column(name = "ID_PERIODO")
+    @Column(name = "ID_PERIODO", updatable = false, insertable = false)
     private Integer idPeriodo;
 
-    @Column(name = "V_TIP_PRIORITARIO")
+    @Column(name = "V_TIP_PRIORITARIO", insertable = false, updatable = false)
     private String tipoPrioritario;
 
-    @Column(name = "ID_INFORME_AUDITORIA")
+    @Column(name = "ID_INFORME_AUDITORIA", insertable = false, updatable = false)
     private Integer idInformeAuditoria;
 
-    @Column(name = "ID_PRODUCTO_PRIORIZADO")
+    @Column(name = "ID_PRODUCTO_PRIORIZADO", insertable = false, updatable = false)
     private Integer idProductoPriorizado;
 
-    @Column(name = "V_NOM_ACC")
+    @Column(name = "V_NOM_ACC", updatable = false, insertable = false)
     private String accionIniciativa;
 
-    @Column(name = "V_NOM_UNIDAD")
+    @Column(name = "V_NOM_UNIDAD", insertable = false, updatable = false)
     private String nomUnidad;
 
-    @Column(name = "V_MED_VERIFICACION")
+    @Column(name = "V_MED_VERIFICACION", insertable = false, updatable = false)
     private String medioVerificacion;
 
-    @Column(name = "D_FEC_INICIO")
+    @Column(name = "D_FEC_INICIO", insertable = false, updatable = false)
     private Date fecInicio;
 
-    @Column(name = "D_FEC_FIN")
+    @Column(name = "D_FEC_FIN", updatable = false, insertable = false)
     private Date fecFin;
 
-    @Column(name = "C_FLG_ESTADO")
+    @Column(name = "C_FLG_ESTADO", updatable = false, insertable = false)
     private String flagEstado;
 
-    public accionIniciativa(){}
+    @Column(name = "ID_VALORAR_ACCION_INICIATIVA", insertable = false, updatable = false)
+    private Integer idValoracion;
 
-    public accionIniciativa(Integer idAccionIniciativa, String tipoProceso, String descripcion, Integer idUnidad, Integer idPeriodo, String tipoPrioritario, Integer idInformeAuditoria, Integer idProductoPriorizado, String accionIniciativa, String nomUnidad, String medioVerificacion, Date fecInicio, Date fecFin, String flagEstado) {
+    @Column(name = "N_NUM_IMPACTO", insertable = false, updatable = false)
+    private Double impacto;
+
+    @Column(name = "N_NUM_COMPLEJIDAD", insertable = false, updatable = false)
+    private Double complejidad;
+
+    @Column(name = "N_NUM_VALORACION", insertable = false, updatable = false)
+    private Double valoracion;
+
+    public viewAccionIniciativa_valorada() {
+    }
+
+    public viewAccionIniciativa_valorada(Integer idAccionIniciativa, String tipoProceso, String descripcion, Integer idUnidad, Integer idPeriodo, String tipoPrioritario, Integer idInformeAuditoria, Integer idProductoPriorizado, String accionIniciativa, String nomUnidad, String medioVerificacion, Date fecInicio, Date fecFin, String flagEstado, Integer idValoracion, Double impacto, Double complejidad, Double valoracion) {
         this.idAccionIniciativa = idAccionIniciativa;
         this.tipoProceso = tipoProceso;
         this.descripcion = descripcion;
@@ -69,6 +79,10 @@ public class accionIniciativa {
         this.fecInicio = fecInicio;
         this.fecFin = fecFin;
         this.flagEstado = flagEstado;
+        this.idValoracion = idValoracion;
+        this.impacto = impacto;
+        this.complejidad = complejidad;
+        this.valoracion = valoracion;
     }
 
     public Integer getIdAccionIniciativa() {
@@ -163,7 +177,7 @@ public class accionIniciativa {
         return fecInicio;
     }
 
-    public void setFecInici(Date fecInicio) {
+    public void setFecInicio(Date fecInicio) {
         this.fecInicio = fecInicio;
     }
 
@@ -175,15 +189,43 @@ public class accionIniciativa {
         this.fecFin = fecFin;
     }
 
-    public void setFecInicio(Date fecInicio) {
-        this.fecInicio = fecInicio;
-    }
-
     public String getFlagEstado() {
         return flagEstado;
     }
 
     public void setFlagEstado(String flagEstado) {
         this.flagEstado = flagEstado;
+    }
+
+    public Integer getIdValoracion() {
+        return idValoracion;
+    }
+
+    public void setIdValoracion(Integer idValoracion) {
+        this.idValoracion = idValoracion;
+    }
+
+    public Double getImpacto() {
+        return impacto;
+    }
+
+    public void setImpacto(Double impacto) {
+        this.impacto = impacto;
+    }
+
+    public Double getComplejidad() {
+        return complejidad;
+    }
+
+    public void setComplejidad(Double complejidad) {
+        this.complejidad = complejidad;
+    }
+
+    public Double getValoracion() {
+        return valoracion;
+    }
+
+    public void setValoracion(Double valoracion) {
+        this.valoracion = valoracion;
     }
 }
